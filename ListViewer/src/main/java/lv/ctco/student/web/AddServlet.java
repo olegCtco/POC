@@ -11,14 +11,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@WebServlet(name = "add", urlPatterns = "/add")
+@WebServlet(name = "add", urlPatterns = "/ListViewer/add")
 public class AddServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
         String university = req.getParameter("university");
-        boolean success=false;
+        boolean success = false;
         try {
             success = (boolean) new ListViewer().add(new ArrayList<String>(Arrays.asList(new String[]{name, surname, university})));
             if (success) {
@@ -35,9 +35,9 @@ public class AddServlet extends HttpServlet {
                 req.setAttribute("university", university);
                 req.setAttribute("message", "Student wasn't added to the list");
             }
-            req.getRequestDispatcher("ListViewer/add.jsp").forward(req, resp);
+            req.getRequestDispatcher("add.jsp").forward(req, resp);
         } catch (NullPointerException ex) {
-              resp.sendRedirect("ListViewer/error.jsp");
+            resp.sendRedirect("error.jsp");
         }
 
     }

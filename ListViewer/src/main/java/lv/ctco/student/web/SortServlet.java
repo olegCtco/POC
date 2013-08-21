@@ -11,16 +11,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@WebServlet(name="sort",urlPatterns = "/sort")
+@WebServlet(name = "sort", urlPatterns = "/ListViewer/sort")
 public class SortServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try{
+        try {
             String sortChoice = req.getParameter("sortChoice");
             new Sort().doOperation(new ArrayList<String>(Arrays.asList(new String[]{sortChoice})));
             resp.sendRedirect("sortSuccess.jsp");
-        }catch(NullPointerException ex) {
-            resp.sendRedirect("ListViewer/error.jsp");
+        } catch (NullPointerException ex) {
+            resp.sendRedirect("error.jsp");
         }
     }
 }
