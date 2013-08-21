@@ -12,11 +12,10 @@
         <th>University</th>
     </tr>
     <% try {
-        for (int i = 0, x = 1; i < StudentsList.getStudentList().size(); i++) {
-            Student student = StudentsList.getStudentList().get(i);
+        for (Student student : StudentsList.getStudentList()) {
     %>
     <tr>
-        <td><%= x++%>
+        <td><%=student.getId()%>
         </td>
         <td><%= student.getName()%>
         </td>
@@ -27,7 +26,7 @@
     </tr>
     <%
             }
-        }catch (NullPointerException ex){
+        } catch (NullPointerException ex) {
             response.sendRedirect("error.jsp");
         }
     %>

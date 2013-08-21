@@ -1,14 +1,20 @@
 package lv.ctco.student;
 
 public class Student {
+    private int id;
     private String name;
     private String surname;
     private String university;
 
-    public Student(String name, String surname, String university) {
+    public Student(String name, String surname, String university, int id) {
         this.name = name;
         this.surname = surname;
         this.university = university;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {

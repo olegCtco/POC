@@ -4,32 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListViewer implements OperationsList {
+    Checker checker;
     private List<Student> resultList;
     private ConsoleIO consoleIO;
     private List<String> values;
-    Checker checker;
 
     public ListViewer() {
         resultList = new ArrayList<Student>();
         consoleIO = new ConsoleIO();
-        checker=new Checker();
+        checker = new Checker();
     }
-    public boolean add(List<String> values) throws NullPointerException{
+
+    public boolean add(List<String> values) throws NullPointerException {
 //        try{
-            String name = values.get(0);
-            String surname = values.get(1);
-            String university = values.get(2);
-            if(name.isEmpty()||surname.isEmpty()||university.isEmpty())
-                return false;
-            Student student = new Student(name, surname, university);
-            StudentsList.getStudentList().add(student);
+        String name = values.get(0);
+        String surname = values.get(1);
+        String university = values.get(2);
+        int idForStudent = StudentsList.idGenerator();
+        if (name.isEmpty() || surname.isEmpty() || university.isEmpty())
+            return false;
+        Student student = new Student(name, surname, university, idForStudent);
+        StudentsList.getStudentList().add(student);
 //        } catch (NullPointerException ex) {
 //            return false;
 //        }
         return true;
     }
 
-    public boolean remove(int index) throws NullPointerException{
+    public boolean remove(int index) throws NullPointerException {
         try {
             List<Student> studentList = StudentsList.getStudentList();
             int indexDelete = index - 1;
@@ -46,7 +48,7 @@ public class ListViewer implements OperationsList {
         return true;
     }
 
-    public List<Student> find(List<String> values) throws NullPointerException{
+    public List<Student> find(List<String> values) throws NullPointerException {
         String name = values.get(0);
         String surname = values.get(1);
         String university = values.get(2);

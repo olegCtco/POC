@@ -1,29 +1,23 @@
 package lv.ctco.student.operations;
 
-import lv.ctco.student.Operation;
-import lv.ctco.student.Operations;
-import lv.ctco.student.Student;
-import lv.ctco.student.StudentsList;
-
-import java.util.List;
-
-public class Add implements Operations {
-    @Override
-    public String getOperation() {
-        return Operation.ADD.name();
-    }
-
-    @Override
-    public Object doOperation(List<String> values) {
-        try {
-            Student student = new Student(values.get(0), values.get(1), values.get(2));
-            StudentsList.getStudentList().add(student);
-            for (Student student1 : StudentsList.getStudentList()) {
-                System.out.println(student1);
-            }
-        } catch (NullPointerException ex) {
-            return false;
-        }
-        return true;
-    }
+public class Add {
+//        implements Operations {
+//    @Override
+//    public String getOperation() {
+//        return Operation.ADD.name();
+//    }
+//
+//    @Override
+//    public Object doOperation(List<String> values) {
+//        try {
+//            Student student = new Student(values.get(0), values.get(1), values.get(2));
+//            StudentsList.getStudentList().add(student);
+//            for (Student student1 : StudentsList.getStudentList()) {
+//                System.out.println(student1);
+//            }
+//        } catch (NullPointerException ex) {
+//            return false;
+//        }
+//        return true;
+//    }
 }
