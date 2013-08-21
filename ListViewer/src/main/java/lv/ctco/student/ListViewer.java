@@ -31,21 +31,25 @@ public class ListViewer implements OperationsList {
         return true;
     }
 
-    public boolean remove(int index) throws NullPointerException {
-        try {
-            List<Student> studentList = StudentsList.getStudentList();
-            int indexDelete = index - 1;
-            if (!checker.outOfBound(studentList, indexDelete)) {
-                StudentsList.getStudentList().remove(indexDelete);
-            } else {
-                return false;
-            }
-        } catch (NullPointerException ex) {
-            return false;
-        } catch (NumberFormatException e) {
+    public boolean remove(String id) throws NullPointerException {
+        List<Student> studentList = StudentsList.getStudentList();
+        String idToRemove = id;
+        if (id.isEmpty() || checker.notAnInteger(id)) {
             return false;
         }
-        return true;
+        int intIdToRemove = Integer.parseInt(idToRemove);
+        if (checker.outOfBound(studentList, intIdToRemove)) {
+            return false;
+        }
+
+        for (int i = 0; i <= studentList.size(); i++) {
+            if (studentList.get(i).getId() == intIdToRemove) {
+                studentList.remove(i);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public List<Student> find(List<String> values) throws NullPointerException {

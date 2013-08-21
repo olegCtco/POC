@@ -9,23 +9,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "remove", urlPatterns = "/remove")
+@WebServlet(name = "remove", urlPatterns = "/ListViewer/remove")
 public class RemoveServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id = req.getParameter("id");
+        boolean success = false;
         try {
-            String indexToDeleteElement = req.getParameter("deletedElementIndex");
-            int index = Integer.parseInt(indexToDeleteElement);
-            boolean success = (boolean) new ListViewer().remove(index);
+            success = (boolean) new ListViewer().remove(id);
             if (success) {
-                resp.sendRedirect("removeSuccess.jsp");
+                req.setAttribute("validId", "Student was successfully removed from the list");
             } else {
-                resp.sendRedirect("removeFail.jsp");
+                req.setAttribute("invalidId", "Invalid id: empty, not a number or out of bound");
+                req.setAttribute("id", id);
             }
-        } catch (NumberFormatException e) {
-
+            req.getRequestDispatcher("remove.jsp").forward(req, resp);
         } catch (NullPointerException ex) {
-            resp.sendRedirect("ListViewer/error.jsp");
+            resp.sendRedirect("error.jsp");
         }
     }
 }
