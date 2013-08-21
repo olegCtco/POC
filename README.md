@@ -1,4 +1,0 @@
-POC
-===
-
-Proof of Concept
