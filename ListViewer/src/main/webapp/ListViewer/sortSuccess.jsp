@@ -43,16 +43,16 @@
                 </table>
                 <table>
                     <tr>
-                        <th>Index</th>
+                        <%--<th>Index</th>--%>
                         <th>Name</th>
                         <th>Surname</th>
                         <th>University</th>
                     </tr>
-                    <% for (Student student : StudentsList.getStudentList()) {
+                    <% for (Student student : StudentsList.getTmpList()) {
                     %>
                     <tr>
-                        <td><%= student.getId()%>
-                        </td>
+                        <%--<td><%= student.getId()%>--%>
+                        <%--</td>--%>
                         <td><%= student.getName()%>
                         </td>
                         <td><%= student.getSurname()%>
