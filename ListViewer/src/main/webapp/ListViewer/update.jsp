@@ -1,5 +1,4 @@
-<%@ page import="lv.ctco.student.Student" %>
-<%@ page import="lv.ctco.student.StudentsList" %>
+<%@ page import="lv.ctco.student.web.FindByIdServlet" %>
 <html>
 <head>
     <link rel="stylesheet" href="css/foundation.css" type="text/css">
@@ -28,10 +27,10 @@
     <tr>
         <td align="center">
             <div class="large-centered">
-                <form action="/ListViewer/remove" method="POST">
+                <form action="/ListViewer/update" method="POST">
                     <table class="pricing-table">
                         <tr>
-                            <td colspan="2">Remove student</td>
+                            <td colspan="2">Update student</td>
                         </tr>
                         <tr>
                             <td>Input student id:</td>
@@ -41,42 +40,43 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input class="button success" type="submit" name="submit" value="Remove">
-                            </td>
+                            <td colspan="2"><input class="button success" type="button"
+                                                   onclick="<%new FindByIdServlet().getStudentByID(request,response);%>"
+                                                   value="Find"></td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <div style="color: green">${validId}</div>
                             </td>
                         </tr>
+                        <tr>
+                            <td>Name:</td>
+                            <td><input type="text" name="name" value="${name}"/></td>
+                            <td>
+                                <div style="color: #4ac3ff">${invalidName}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Surname:</td>
+                            <td><input type="text" name="surname" value="${surname}"/></td>
+                            <td>
+                                <div style="color: red">${invalidSurname}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>University:</td>
+                            <td><input type="text" name="university" value="${university}"/></td>
+                            <td>
+                                <div style="color: red">${invalidUniversity}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input class="button success" type="submit" name="submit" value="Update">
+                            </td>
+                        </tr>
                     </table>
                 </form>
             </div>
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <table>
-                <tr>
-                    <th>Index</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th>University</th>
-                </tr>
-                <% for (Student student : StudentsList.getStudentList()) {
-                %>
-                <tr>
-                    <td><%= student.getId()%>
-                    </td>
-                    <td><%= student.getName()%>
-                    </td>
-                    <td><%= student.getSurname()%>
-                    </td>
-                    <td><%= student.getUniversity()%>
-                    </td>
-                </tr>
-                <%}%>
-            </table>
         </td>
     </tr>
 </table>

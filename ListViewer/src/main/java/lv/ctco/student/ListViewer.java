@@ -52,6 +52,37 @@ public class ListViewer implements OperationsList {
         return false;
     }
 
+    public Student getStudentById(String id) throws NullPointerException {
+        List<Student> studentList = StudentsList.getStudentList();
+        if (id.isEmpty() || checker.notAnInteger(id)) {
+            return null;
+        }
+        int intIdToRemove = Integer.parseInt(id);
+        if (checker.outOfBound(studentList, intIdToRemove)) {
+            return null;
+        }
+
+        for (int i = 0; i <= studentList.size(); i++) {
+            if (studentList.get(i).getId() == intIdToRemove) {
+                return studentList.get(i);
+            }
+        }
+
+        return null;
+    }
+
+    public boolean update(String id, String name, String surname, String university) throws NullPointerException {
+        if (!getStudentById(id).equals(null)) {
+            int studentIdToChange = Integer.parseInt(id);
+            Student student = StudentsList.getStudentList().get(studentIdToChange);
+            student.setName(name);
+            student.setSurname(surname);
+            student.setUniversity(university);
+            return true;
+        }
+        return false;
+    }
+
     public List<Student> find(List<String> values) throws NullPointerException {
         String name = values.get(0);
         String surname = values.get(1);
