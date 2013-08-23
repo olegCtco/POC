@@ -21,12 +21,24 @@ public class Student {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getSurname() {
         return surname;
     }
 
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     public String getUniversity() {
         return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
     }
 
     @Override
