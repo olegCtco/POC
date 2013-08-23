@@ -54,17 +54,17 @@ public class ListViewer implements OperationsList {
 
     public Student getStudentById(String id) throws NullPointerException {
         List<Student> studentList = StudentsList.getStudentList();
-        if (id.isEmpty() || checker.notAnInteger(id)) {
+        if (id.isEmpty() || checker.notAnInteger(id) || studentList.isEmpty()) {
             return null;
         }
         int intIdToRemove = Integer.parseInt(id);
-        if (checker.outOfBound(studentList, intIdToRemove)) {
-            return null;
-        }
+//        if (checker.outOfBound(studentList, intIdToRemove)) {
+//            return null;
+//        }
 
-        for (int i = 0; i <= studentList.size(); i++) {
-            if (studentList.get(i).getId() == intIdToRemove) {
-                return studentList.get(i);
+        for (Student student : studentList) {
+            if (student.getId() == intIdToRemove) {
+                return student;
             }
         }
 
@@ -72,12 +72,11 @@ public class ListViewer implements OperationsList {
     }
 
     public boolean update(String id, String name, String surname, String university) throws NullPointerException {
-        if (!getStudentById(id).equals(null)) {
-            int studentIdToChange = Integer.parseInt(id);
-            Student student = StudentsList.getStudentList().get(studentIdToChange);
-            student.setName(name);
-            student.setSurname(surname);
-            student.setUniversity(university);
+        Student studentToChange = getStudentById(id);
+        if (!studentToChange.equals(null)) {
+            studentToChange.setName(name);
+            studentToChange.setSurname(surname);
+            studentToChange.setUniversity(university);
             return true;
         }
         return false;
