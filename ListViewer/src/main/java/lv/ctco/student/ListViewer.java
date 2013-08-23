@@ -1,5 +1,7 @@
 package lv.ctco.student;
 
+import lv.ctco.student.db.DBConnector;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ public class ListViewer implements OperationsList {
     private List<String> values;
 
     public ListViewer() {
+        System.out.println(new DBConnector().initDBSuccess());
         resultList = new ArrayList<Student>();
         consoleIO = new ConsoleIO();
         checker = new Checker();
