@@ -1,11 +1,14 @@
 package lv.ctco.student;
 
 import lv.ctco.student.db.DBConnector;
+import lv.ctco.student.db.DBOperations;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListViewer implements OperationsList {
+    DBOperations DBOperations;
     Checker checker;
     private List<Student> resultList;
     private ConsoleIO consoleIO;
@@ -16,6 +19,7 @@ public class ListViewer implements OperationsList {
         resultList = new ArrayList<Student>();
         consoleIO = new ConsoleIO();
         checker = new Checker();
+        DBOperations = new DBOperations();
     }
 
     public boolean add(List<String> values) throws NullPointerException {
@@ -34,7 +38,7 @@ public class ListViewer implements OperationsList {
         return true;
     }
 
-    public boolean remove(String id) throws NullPointerException {
+    public boolean remove(String id) throws NullPointerException, SQLException {
         List<Student> studentList = StudentsList.getStudentList();
         String idToRemove = id;
         if (id.isEmpty() || checker.notAnInteger(id)) {
@@ -47,6 +51,7 @@ public class ListViewer implements OperationsList {
 
         for (int i = 0; i <= studentList.size(); i++) {
             if (studentList.get(i).getId() == intIdToRemove) {
+                DBOperations.delete(intIdToRemove);
                 studentList.remove(i);
                 return true;
             }

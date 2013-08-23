@@ -7,8 +7,16 @@ import java.sql.Statement;
 
 public class DBConnector implements IDBConnector {
 
-    private Statement statement;
+    private static Statement statement;
     private Connection connection;
+
+    public static Statement getStatement() {
+        return statement;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
 
     public boolean initDBSuccess() {
         try {
