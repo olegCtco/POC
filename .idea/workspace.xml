@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6702a0-7db6-4ac0-b868-0970158cc208" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ListViewer/pom.xml" afterPath="$PROJECT_DIR$/ListViewer/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="POC.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377261996256" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377262173831" ignored="false" />
     <file path="/fragment.java" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377153542491" ignored="false" />
     <file path="/remove.jsp" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377126024289" ignored="false" />
     <file path="/RemoveServlet.java" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377123421334" ignored="false" />
@@ -35,6 +35,8 @@
     <file path="$USER_HOME$/IdeaProjects/W4D4TaskAtayeva/src/main/java/com/ctco/w4d4taskatayeva/StringProcessor.java" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377173754533" ignored="false" />
     <file path="/StringProcessor.java" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377173753906" ignored="false" />
     <file path="/pom.xml" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377262129364" ignored="false" />
+    <file path="$PROJECT_DIR$/../JS2013/2013-08-23.web-studentlist-db/src/main/java/h2/H2Test.java" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377262297521" ignored="false" />
+    <file path="/H2Test.java" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377262398114" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +100,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ListViewer/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="18" selection-start="2054" selection-end="2054" vertical-scroll-proportion="1.6995884">
+            <state line="68" column="16" selection-start="2473" selection-end="2473" vertical-scroll-proportion="0.33539096">
               <folding />
             </state>
           </provider>
@@ -128,6 +130,7 @@
         <option value="$PROJECT_DIR$/ListViewer/src/main/java/lv/ctco/student/web/RemoveServlet.java" />
         <option value="$PROJECT_DIR$/ListViewer/src/main/java/lv/ctco/student/ListViewer.java" />
         <option value="$PROJECT_DIR$/ListViewer/pom.xml" />
+        <option value="$PROJECT_DIR$/ListViewer/src/test/java/lv.ctco.student/H2Test.java" />
       </list>
     </option>
   </component>
@@ -258,11 +261,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -281,6 +280,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -630,7 +633,11 @@
       <created>1377261746970</created>
       <updated>1377261746970</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="pom.xml H2 depency adding">
+      <created>1377262179432</created>
+      <updated>1377262179432</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -655,7 +662,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -676,7 +683,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12912482" sideWeight="0.7140865" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964131" sideWeight="0.7140865" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964131" sideWeight="0.7140865" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28591353" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -727,7 +734,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="excess .gitignore removal" />
+    <option name="LAST_COMMIT_MESSAGE" value="pom.xml H2 depency adding" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -742,6 +749,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="excess .gitignore removal" />
+    <MESSAGE value="pom.xml H2 depency adding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -808,7 +816,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ListViewer/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="18" selection-start="2054" selection-end="2054" vertical-scroll-proportion="1.6995884">
+        <state line="68" column="16" selection-start="2473" selection-end="2473" vertical-scroll-proportion="0.33539096">
           <folding />
         </state>
       </provider>
