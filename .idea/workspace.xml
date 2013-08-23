@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6702a0-7db6-4ac0-b868-0970158cc208" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MOVED" beforePath="C:\Users\atayeva\Documents\GitHub\POC\.gitignore" afterPath="$PROJECT_DIR$/ListViewer/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="POC.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377262173831" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377262574128" ignored="false" />
     <file path="/fragment.java" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377153542491" ignored="false" />
     <file path="/remove.jsp" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377126024289" ignored="false" />
     <file path="/RemoveServlet.java" changelist="2f6702a0-7db6-4ac0-b868-0970158cc208" time="1377123421334" ignored="false" />
@@ -100,7 +100,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ListViewer/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="16" selection-start="2473" selection-end="2473" vertical-scroll-proportion="0.33539096">
+            <state line="81" column="36" selection-start="2882" selection-end="2882" vertical-scroll-proportion="0.79012346">
               <folding />
             </state>
           </provider>
@@ -355,6 +355,11 @@
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\atayeva\Documents\GitHub\POC\ListViewer" />
+    </key>
   </component>
   <component name="RestoreUpdateTree">
     <UpdateInfo date="Moments ago" ActionInfo="_Update">
@@ -637,7 +642,11 @@
       <created>1377262179432</created>
       <updated>1377262179432</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="pom.xml H2 depency adding">
+      <created>1377262575638</created>
+      <updated>1377262575638</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -816,7 +825,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ListViewer/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="16" selection-start="2473" selection-end="2473" vertical-scroll-proportion="0.33539096">
+        <state line="81" column="36" selection-start="2882" selection-end="2882" vertical-scroll-proportion="0.79012346">
           <folding />
         </state>
       </provider>
