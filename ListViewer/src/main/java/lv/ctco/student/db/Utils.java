@@ -7,13 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-/**
- * Created with IntelliJ IDEA.
- * User: butross
- * Date: 8/23/13
- * Time: 5:19 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Utils {
     public static List<String> parseToSql(String fileName) throws IOException {
         List<String> sqlQueries = new ArrayList<String>();
