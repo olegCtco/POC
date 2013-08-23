@@ -17,19 +17,23 @@ import java.io.IOException;
  * Time: 9:13 AM
  * To change this template use File | Settings | File Templates.
  */
-@WebServlet(name = "update", urlPatterns = "/ListViewer/findById")
+@WebServlet(name = "findById", urlPatterns = "/ListViewer/findById")
 public class FindByIdServlet extends HttpServlet {
-    public void getStudentByID(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         Student student = new ListViewer().getStudentById(id);
-        if (!student.equals(null)) {
+        if (student != null) {
             String foundedName = student.getName();
             String foundedSurname = student.getSurname();
             String foundedUniversity = student.getUniversity();
             req.setAttribute("id", id);
+            req.setAttribute("idHidden", id);
             req.setAttribute("name", foundedName);
             req.setAttribute("surname", foundedSurname);
             req.setAttribute("university", foundedUniversity);
+        } else {
+            req.setAttribute("invalidId", "Student by this index not found!");
         }
         req.getRequestDispatcher("update.jsp").forward(req, resp);
     }
