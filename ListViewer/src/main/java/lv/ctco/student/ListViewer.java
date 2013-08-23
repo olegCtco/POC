@@ -3,6 +3,7 @@ package lv.ctco.student;
 import lv.ctco.student.db.DBConnector;
 import lv.ctco.student.db.DBOperations;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +17,17 @@ public class ListViewer implements OperationsList {
 
     public ListViewer() {
         System.out.println(new DBConnector().initDBSuccess());
+
         resultList = new ArrayList<Student>();
         consoleIO = new ConsoleIO();
         checker = new Checker();
         DBOperations = new DBOperations();
+        try {
+            DBOperations.createTables();
+        } catch (IOException e) {
+            System.out.println("Exception on creation");
+        }
+        DBOperations.addFromTableToList();
     }
 
     public boolean add(List<String> values) throws NullPointerException {
@@ -38,7 +46,7 @@ public class ListViewer implements OperationsList {
         return true;
     }
 
-    public boolean remove(String id) throws NullPointerException, SQLException {
+    public boolean remove(String id) throws NullPointerException {
         List<Student> studentList = StudentsList.getStudentList();
         String idToRemove = id;
         if (id.isEmpty() || checker.notAnInteger(id)) {
@@ -51,8 +59,12 @@ public class ListViewer implements OperationsList {
 
         for (int i = 0; i <= studentList.size(); i++) {
             if (studentList.get(i).getId() == intIdToRemove) {
-                DBOperations.delete(intIdToRemove);
-                studentList.remove(i);
+                try {
+                    DBOperations.delete(intIdToRemove);
+                    studentList.remove(i);
+                } catch (SQLException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
                 return true;
             }
         }

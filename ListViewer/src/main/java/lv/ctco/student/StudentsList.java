@@ -21,4 +21,8 @@ public class StudentsList {
     public static int idGenerator() {
         return id++;
     }
+
+    public static void setId(int id1) {
+        id = id1 + 1;
+    }
 }
