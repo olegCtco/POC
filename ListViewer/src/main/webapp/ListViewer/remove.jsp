@@ -19,6 +19,8 @@
                    onclick="location.href='http://localhost:8080/ListViewer/sort.jsp'">
             <input class="button" type="button" value="Remove"
                    onclick="location.href='http://localhost:8080/ListViewer/remove.jsp'">
+            <input class="button" type="button" value="Update"
+                   onclick="location.href='http://localhost:8080/ListViewer/update.jsp'">
             <input class="button" type="button" value="Home"
                    onclick="location.href='http://localhost:8080/ListViewer/index.jsp'">
         </td>
@@ -39,7 +41,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input class="button success" type="submit" name="submit" value="Remove"></td>
+                            <td colspan="2"><input class="button success" type="submit" name="submit" value="Remove">
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -48,34 +51,34 @@
                         </tr>
                     </table>
                 </form>
-             </div>
-         </td>
-     </tr>
-     <tr>
-             <td align="center">
-                 <table>
-                     <tr>
-                         <th>Index</th>
-                         <th>Name</th>
-                         <th>Surname</th>
-                         <th>University</th>
-                     </tr>
-                     <% for (Student student : StudentsList.getStudentList()) {
-                     %>
-                     <tr>
-                         <td><%= student.getId()%>
-                         </td>
-                         <td><%= student.getName()%>
-                         </td>
-                         <td><%= student.getSurname()%>
-                         </td>
-                         <td><%= student.getUniversity()%>
-                         </td>
-                     </tr>
-                     <%}%>
-                 </table>
-             </td>
-         </tr>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <table>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>University</th>
+                </tr>
+                <% for (Student student : StudentsList.getStudentList()) {
+                %>
+                <tr>
+                    <td><%= student.getId()%>
+                    </td>
+                    <td><%= student.getName()%>
+                    </td>
+                    <td><%= student.getSurname()%>
+                    </td>
+                    <td><%= student.getUniversity()%>
+                    </td>
+                </tr>
+                <%}%>
+            </table>
+        </td>
+    </tr>
 </table>
 </body>
 </html>

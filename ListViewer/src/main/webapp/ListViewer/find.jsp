@@ -15,6 +15,8 @@
                    onclick="location.href='http://localhost:8080/ListViewer/sort.jsp'">
             <input class="button" type="button" value="Remove"
                    onclick="location.href='http://localhost:8080/ListViewer/remove.jsp'">
+            <input class="button" type="button" value="Update"
+                   onclick="location.href='http://localhost:8080/ListViewer/update.jsp'">
             <input class="button" type="button" value="Home"
                    onclick="location.href='http://localhost:8080/ListViewer/index.jsp'">
         </td>
