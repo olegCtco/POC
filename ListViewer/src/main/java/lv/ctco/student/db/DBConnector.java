@@ -5,13 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Created with IntelliJ IDEA.
- * User: butross
- * Date: 8/23/13
- * Time: 4:01 PM
- * To change this template use File | Settings | File Templates.
- */
 public class DBConnector implements IDBConnector {
 
     private Statement statement;
