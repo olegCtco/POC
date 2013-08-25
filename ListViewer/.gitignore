@@ -2,6 +2,7 @@
 ## EclipseAndIdea
 #################
 DBOperations.java
+*.db
 *.pydevproject
 .project
 .metadata

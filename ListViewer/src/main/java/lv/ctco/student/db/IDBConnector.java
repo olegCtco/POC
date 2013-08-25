@@ -7,4 +7,6 @@ public interface IDBConnector {
     String PASSWORD = "";
 
     public boolean initDBSuccess();
+
+    public boolean closeDBConnection();
 }

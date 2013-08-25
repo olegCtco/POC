@@ -27,4 +27,17 @@ public class DBConnector implements IDBConnector {
             return false;
         }
     }
+
+    @Override
+    public boolean closeDBConnection() {
+        try {
+            if (statement != null) {
+                statement.close();
+            }
+            connection.close();
+            return true;
+        } catch (SQLException sqlException) {
+            return false;
+        }
+    }
 }

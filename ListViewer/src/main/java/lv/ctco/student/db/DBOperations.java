@@ -11,15 +11,15 @@ import java.util.List;
 public class DBOperations {
     public void createTables() throws IOException {
 //        /home/joen/GitHub/POC/ListViewer/sql/sqlCreateTable.sql
-//        List<String> sqlQueries = Utils.parseToSql("sql\\sqlCreateTable.sql");
-        List<String> sqlQueries = Utils.parseToSql("sql/sqlCreateTable.sql");
+        List<String> sqlQueries = Utils.parseToSql("sql\\sqlCreateTable.sql");
+//        List<String> sqlQueries = Utils.parseToSql("sql/sqlCreateTable.sql");
         try {
             for (String query : sqlQueries) {
                 DBConnector.getStatement().executeUpdate(query);
             }
             sqlQueries.clear();
-//            sqlQueries = Utils.parseToSql("sql\\sqlInsert.sql");
-            sqlQueries = Utils.parseToSql("sql/sqlInsert.sql");
+            sqlQueries = Utils.parseToSql("sql\\sqlInsert.sql");
+//            sqlQueries = Utils.parseToSql("sql/sqlInsert.sql");
             for (String query : sqlQueries) {
                 DBConnector.getStatement().executeUpdate(query);
             }

@@ -13,15 +13,16 @@ import java.io.IOException;
 public class ApplicationStartup implements ServletContextListener {
     DBOperations dbOperations;
     DBConnector dbConnector;
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        dbConnector=new DBConnector();
+        dbConnector = new DBConnector();
         dbConnector.initDBSuccess();
         dbOperations = new DBOperations();
         try {
             dbOperations.createTables();
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
 
         dbOperations.addFromTableToList();
@@ -29,6 +30,6 @@ public class ApplicationStartup implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
-
+        dbConnector.closeDBConnection();
     }
 }
