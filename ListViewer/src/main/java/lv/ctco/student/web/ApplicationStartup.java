@@ -7,9 +7,10 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import java.io.IOException;
 
-@WebListener
+//@WebListener
 public class ApplicationStartup implements ServletContextListener {
-    DBOperations dbOperations=new DBOperations();
+    DBOperations dbOperations = new DBOperations();
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         dbOperations = new DBOperations();
