@@ -1,9 +1,7 @@
 package lv.ctco.student;
 
-import lv.ctco.student.db.DBConnector;
 import lv.ctco.student.db.DBOperations;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +14,7 @@ public class ListViewer implements OperationsList {
     private List<String> values;
 
     public ListViewer() {
-        dbOperations=new DBOperations();
+        dbOperations = new DBOperations();
         resultList = new ArrayList<Student>();
         consoleIO = new ConsoleIO();
         checker = new Checker();
@@ -32,10 +30,12 @@ public class ListViewer implements OperationsList {
         if (name.isEmpty() || surname.isEmpty() || university.isEmpty())
             return false;
         Student student = new Student(name, surname, university, idForStudent);
-        StudentsList.getStudentList().add(student);
-//        } catch (NullPointerException ex) {
-//            return false;
-//        }
+        try {
+            dbOperations.insert(name, surname, university);
+            StudentsList.getStudentList().add(student);
+        } catch (SQLException e) {
+            return false;
+        }
         return true;
     }
 
@@ -53,7 +53,6 @@ public class ListViewer implements OperationsList {
             if (studentList.get(i).getId() == intIdToRemove) {
                 try {
                     dbOperations.delete(intIdToRemove);
-                    System.out.println("Deleted================================1");
                     studentList.remove(i);
                 } catch (SQLException e) {
                     return false;
@@ -87,10 +86,15 @@ public class ListViewer implements OperationsList {
     public boolean update(String id, String name, String surname, String university) throws NullPointerException {
         Student studentToChange = getStudentById(id);
         if (!studentToChange.equals(null)) {
-            studentToChange.setName(name);
-            studentToChange.setSurname(surname);
-            studentToChange.setUniversity(university);
-            return true;
+            int idToChange = studentToChange.getId();
+            try {
+                dbOperations.update(idToChange, name, surname, university);
+                studentToChange.setName(name);
+                studentToChange.setSurname(surname);
+                studentToChange.setUniversity(university);
+                return true;
+            } catch (SQLException ignored) {
+            }
         }
         return false;
     }

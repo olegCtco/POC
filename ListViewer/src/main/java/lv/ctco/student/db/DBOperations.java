@@ -67,4 +67,14 @@ public class DBOperations {
     public void delete(int index) throws SQLException {
         DBConnector.getStatement().executeUpdate("DELETE FROM STUDENTS WHERE ID = " + index);
     }
+
+    public void insert(String name, String surname, String university) throws SQLException {
+        DBConnector.getStatement().executeUpdate("INSERT INTO STUDENTS (FNAME, SNAME, UNIVERSITY) VALUES ('" + name + "', '" + surname + "', '" + university + "');");
+    }
+
+    public void update(int index, String name, String surname, String university) throws SQLException {
+        DBConnector.getStatement().executeUpdate(
+                "UPDATE STUDENTS SET FNAME='" + name + "', SNAME='" + surname + "', UNIVERSITY='" + university +
+                        "'WHERE ID=" + index);
+    }
 }
