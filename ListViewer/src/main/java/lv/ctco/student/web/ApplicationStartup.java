@@ -1,5 +1,7 @@
 package lv.ctco.student.web;
 
+
+import lv.ctco.student.db.DBConnector;
 import lv.ctco.student.db.DBOperations;
 
 import javax.servlet.ServletContextEvent;
@@ -9,16 +11,19 @@ import java.io.IOException;
 
 @WebListener
 public class ApplicationStartup implements ServletContextListener {
-    DBOperations dbOperations = new DBOperations();
-
+    DBOperations dbOperations;
+    DBConnector dbConnector;
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        dbConnector=new DBConnector();
+        dbConnector.initDBSuccess();
         dbOperations = new DBOperations();
         try {
             dbOperations.createTables();
         } catch (IOException e) {
-            System.out.println("Exception on creation");
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
+
         dbOperations.addFromTableToList();
     }
 
