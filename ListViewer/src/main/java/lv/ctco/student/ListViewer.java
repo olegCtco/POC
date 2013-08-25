@@ -21,13 +21,7 @@ public class ListViewer implements OperationsList {
         resultList = new ArrayList<Student>();
         consoleIO = new ConsoleIO();
         checker = new Checker();
-        DBOperations = new DBOperations();
-        try {
-            DBOperations.createTables();
-        } catch (IOException e) {
-            System.out.println("Exception on creation");
-        }
-        DBOperations.addFromTableToList();
+
     }
 
     public boolean add(List<String> values) throws NullPointerException {
