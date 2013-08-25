@@ -11,22 +11,21 @@ import java.util.List;
 public class DBOperations {
     public void createTables() throws IOException {
 //        /home/joen/GitHub/POC/ListViewer/sql/sqlCreateTable.sql
-        List<String> sqlQueries = Utils.parseToSql("sql\\sqlCreateTable.sql");
-//        List<String> sqlQueries = Utils.parseToSql("sql/sqlCreateTable.sql");
+//        List<String> sqlQueries = Utils.parseToSql("sql\\sqlCreateTable.sql");
+        List<String> sqlQueries = Utils.parseToSql("sql/sqlCreateTable.sql");
         try {
             for (String query : sqlQueries) {
                 DBConnector.getStatement().executeUpdate(query);
             }
             sqlQueries.clear();
-            sqlQueries = Utils.parseToSql("sql\\sqlInsert.sql");
-//            sqlQueries = Utils.parseToSql("sql/sqlInsert.sql");
+//            sqlQueries = Utils.parseToSql("sql\\sqlInsert.sql");
+            sqlQueries = Utils.parseToSql("sql/sqlInsert.sql");
             for (String query : sqlQueries) {
                 DBConnector.getStatement().executeUpdate(query);
             }
         } catch (SQLException ignored) {
             System.out.println("ignore creation");
         }
-        closeStatement();
     }
 
     public void addFromTableToList() {
@@ -54,31 +53,27 @@ public class DBOperations {
             } catch (SQLException e) {
             }
         }
-        closeStatement();
     }
 
     private void closeStatement() {
         try {
             DBConnector.getStatement().close();
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
     }
 
     public void delete(int index) throws SQLException {
         DBConnector.getStatement().executeUpdate("DELETE FROM STUDENTS WHERE ID = " + index);
-        closeStatement();
     }
 
     public void insert(String name, String surname, String university) throws SQLException {
         DBConnector.getStatement().executeUpdate("INSERT INTO STUDENTS (FNAME, SNAME, UNIVERSITY) VALUES ('" + name + "', '" + surname + "', '" + university + "');");
-        closeStatement();
     }
 
     public void update(int index, String name, String surname, String university) throws SQLException {
         DBConnector.getStatement().executeUpdate(
                 "UPDATE STUDENTS SET FNAME='" + name + "', SNAME='" + surname + "', UNIVERSITY='" + university +
                         "'WHERE ID=" + index);
-        closeStatement();
     }
 }
