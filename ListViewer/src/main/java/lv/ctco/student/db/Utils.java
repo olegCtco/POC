@@ -21,6 +21,7 @@ public class Utils {
         while (stringTokenizer.hasMoreTokens()) {
             sqlQueries.add(stringTokenizer.nextToken());
         }
+        sqlFile.close();
         return sqlQueries;
     }
 }

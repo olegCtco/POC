@@ -31,14 +31,6 @@ public class DBOperations {
     public void addFromTableToList() {
         List<Student> studentList = StudentsList.getStudentList();
         ResultSet resultSet;
-//        try {
-//            resultSet = DBConnector.getStatement().executeQuery("SELECT COUNT(*) FROM STUDENTS;");
-//        } catch (SQLException e) {
-//        }
-//        while(resultSet.next()){
-//
-//        }
-        System.out.println("StudentsList is empty " + studentList.isEmpty());
         if (studentList.isEmpty()) {
             try {
                 resultSet = DBConnector.getStatement().executeQuery("SELECT * FROM STUDENTS;");
@@ -61,7 +53,11 @@ public class DBOperations {
             } catch (SQLException e) {
             }
         }
-
+        try {
+            DBConnector.getStatement().close();
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
     }
 
     public void delete(int index) throws SQLException {
