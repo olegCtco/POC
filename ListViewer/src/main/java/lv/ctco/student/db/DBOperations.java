@@ -65,6 +65,6 @@ public class DBOperations {
     }
 
     public void delete(int index) throws SQLException {
-        DBConnector.getStatement().executeUpdate("DELETE FROM STUDENTS WHERE ID = " + index + ";");
+        DBConnector.getStatement().executeUpdate("DELETE FROM STUDENTS WHERE ID = " + index);
     }
 }

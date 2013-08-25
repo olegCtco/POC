@@ -9,15 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListViewer implements OperationsList {
-    DBOperations DBOperations;
+    DBOperations dbOperations;
     Checker checker;
     private List<Student> resultList;
     private ConsoleIO consoleIO;
     private List<String> values;
 
     public ListViewer() {
-        System.out.println(new DBConnector().initDBSuccess());
-
+        dbOperations=new DBOperations();
         resultList = new ArrayList<Student>();
         consoleIO = new ConsoleIO();
         checker = new Checker();
@@ -50,14 +49,14 @@ public class ListViewer implements OperationsList {
         if (checker.outOfBound(studentList, intIdToRemove)) {
             return false;
         }
-
         for (int i = 0; i <= studentList.size(); i++) {
             if (studentList.get(i).getId() == intIdToRemove) {
                 try {
-                    DBOperations.delete(intIdToRemove);
+                    dbOperations.delete(intIdToRemove);
+                    System.out.println("Deleted================================1");
                     studentList.remove(i);
                 } catch (SQLException e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    return false;
                 }
                 return true;
             }
