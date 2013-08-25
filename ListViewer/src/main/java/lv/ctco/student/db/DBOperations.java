@@ -26,6 +26,7 @@ public class DBOperations {
         } catch (SQLException ignored) {
             System.out.println("ignore creation");
         }
+        closeStatement();
     }
 
     public void addFromTableToList() {
@@ -53,6 +54,10 @@ public class DBOperations {
             } catch (SQLException e) {
             }
         }
+        closeStatement();
+    }
+
+    private void closeStatement() {
         try {
             DBConnector.getStatement().close();
         } catch (SQLException e) {
@@ -62,15 +67,18 @@ public class DBOperations {
 
     public void delete(int index) throws SQLException {
         DBConnector.getStatement().executeUpdate("DELETE FROM STUDENTS WHERE ID = " + index);
+        closeStatement();
     }
 
     public void insert(String name, String surname, String university) throws SQLException {
         DBConnector.getStatement().executeUpdate("INSERT INTO STUDENTS (FNAME, SNAME, UNIVERSITY) VALUES ('" + name + "', '" + surname + "', '" + university + "');");
+        closeStatement();
     }
 
     public void update(int index, String name, String surname, String university) throws SQLException {
         DBConnector.getStatement().executeUpdate(
                 "UPDATE STUDENTS SET FNAME='" + name + "', SNAME='" + surname + "', UNIVERSITY='" + university +
                         "'WHERE ID=" + index);
+        closeStatement();
     }
 }
