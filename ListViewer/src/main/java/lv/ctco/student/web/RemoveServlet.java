@@ -17,7 +17,7 @@ public class RemoveServlet extends HttpServlet {
         boolean success = false;
         try {
             success = (boolean) new ListViewer().remove(id);
-            System.out.println("Success "+success);
+            System.out.println("Success " + success);
             if (success) {
                 req.setAttribute("validId", "Student was successfully removed from the list");
             } else {

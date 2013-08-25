@@ -28,7 +28,7 @@ public class Checker implements OperationsList {
     }
 
     public boolean outOfBound(List<Student> studentList, int id) {
-        for(Student student: studentList) {
+        for (Student student : studentList) {
             if (student.getId() == id)
                 return false;
         }
