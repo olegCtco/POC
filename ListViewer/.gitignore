@@ -3,6 +3,7 @@
 #################
 DBOperations.java
 *.db
+*.h2.db
 *.pydevproject
 .project
 .metadata
