@@ -4,6 +4,7 @@
 DBOperations.java
 *.db
 *.h2.db
+.lib/
 *.pydevproject
 .project
 .metadata
