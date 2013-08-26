@@ -38,7 +38,7 @@ public class UpdateServlet extends HttpServlet {
                 req.setAttribute("university", university);
                 req.setAttribute("idHidden", idHidden);
                 if (!isEmptyField) {
-                    success = (boolean) new ListViewer().update(idHidden, name, surname, university);
+                    success = new ListViewer().update(idHidden, name, surname, university);
                 } else {
                     req.setAttribute("errorMessage", "Student wasn't changed in list");
                 }
@@ -53,6 +53,4 @@ public class UpdateServlet extends HttpServlet {
             resp.sendRedirect("error.jsp");
         }
     }
-
-
 }

@@ -17,7 +17,7 @@ public class SortServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             String sortChoice = req.getParameter("sortChoice");
-            new Sort().doOperation(new ArrayList<String>(Arrays.asList(new String[]{sortChoice})));
+            new Sort().doOperation(new ArrayList<>(Arrays.asList(new String[]{sortChoice})));
             resp.sendRedirect("sortSuccess.jsp");
         } catch (NullPointerException ex) {
             resp.sendRedirect("error.jsp");

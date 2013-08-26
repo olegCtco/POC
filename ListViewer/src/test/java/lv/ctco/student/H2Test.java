@@ -1,5 +1,4 @@
 package lv.ctco.student;
 
-public class H2Test {
-
+class H2Test {
 }

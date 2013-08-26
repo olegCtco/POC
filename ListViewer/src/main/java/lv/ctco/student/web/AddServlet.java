@@ -18,9 +18,9 @@ public class AddServlet extends HttpServlet {
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
         String university = req.getParameter("university");
-        boolean success = false;
+        boolean success;
         try {
-            success = (boolean) new ListViewer().add(new ArrayList<String>(Arrays.asList(new String[]{name, surname, university})));
+            success = new ListViewer().add(new ArrayList<>(Arrays.asList(new String[]{name, surname, university})));
             if (success) {
                 req.setAttribute("message", "Student was successfully added to the list");
             } else {
@@ -39,6 +39,5 @@ public class AddServlet extends HttpServlet {
         } catch (NullPointerException ex) {
             resp.sendRedirect("error.jsp");
         }
-
     }
 }

@@ -1,5 +1,5 @@
 package lv.ctco.student;
 
 public enum Operation {
-    ADD, EXIT, FIND, REMOVE, SORT, VIEW;
+    ADD, EXIT, FIND, REMOVE, SORT, VIEW
 }

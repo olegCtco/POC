@@ -7,9 +7,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class AddIO implements OperationsIO {
-    private Checker checker;
-    private String mnemonics;
-    BufferedReader localBf;
+    private final Checker checker;
+    private final String mnemonics;
+    private final BufferedReader localBf;
 
     public AddIO(String mnemonics) {
         this.mnemonics = mnemonics;
@@ -23,9 +23,9 @@ public class AddIO implements OperationsIO {
 
     @Override
     public String[] doOperationIO() {
-        String name = "";
-        String surname = "";
-        String university = "";
+        String name;
+        String surname;
+        String university;
         String[] values = new String[4];
         try {
             do {
@@ -43,7 +43,7 @@ public class AddIO implements OperationsIO {
                 university = localBf.readLine();
             } while (checker.isEmptyString(university));
             values[2] = university;
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         return values;
     }

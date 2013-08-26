@@ -25,16 +25,25 @@
     </tr>
     <tr>
         <td align="center">
-            <form action="/ListViewer/sort" method="POST">
+            <form action="${pageContext.request.contextPath}/ListViewer/sort" method="POST">
                 <table>
                     <tr>
                         <td colspan="2">Sort the student/s</td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" name=sortChoice value="name" checked="true"> Name
-                            <input type="radio" name="sortChoice" value="surname"> Surname
-                            <input type="radio" name="sortChoice" value="university"> University
+                            <label>
+                                <input type="radio" name=sortChoice value="name" checked="true">
+                                Name
+                            </label>
+                            <label>
+                                <input type="radio" name="sortChoice" value="surname">
+                                Surname
+                            </label>
+                            <label>
+                                <input type="radio" name="sortChoice" value="university">
+                                University
+                            </label>
                         </td>
                     </tr>
                     <tr>

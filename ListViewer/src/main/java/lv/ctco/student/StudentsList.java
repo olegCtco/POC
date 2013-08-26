@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentsList {
-    private static List<Student> studentList = new ArrayList<Student>();
-    //    private static List<Student> studentList ;
-    private static List<Student> tmpList = new ArrayList<Student>();
+    private static final List<Student> studentList = new ArrayList<>();
+    private static final List<Student> tmpList = new ArrayList<>();
     private static int id = 1;
 
     public static List<Student> getTmpList() {
         return tmpList;
     }
-//    private static List<Student> studentList;
 
     public static List<Student> getStudentList() {
         return studentList;
@@ -23,6 +21,6 @@ public class StudentsList {
     }
 
     public static void setId(int id1) {
-        id = id1 + 1;
+        id = ++id1;
     }
 }

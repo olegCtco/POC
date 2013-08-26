@@ -5,7 +5,7 @@ import lv.ctco.student.*;
 import java.util.List;
 
 public class Remove implements Operations {
-    Checker checker;
+    private final Checker checker;
 
     public Remove() {
         checker = new Checker();

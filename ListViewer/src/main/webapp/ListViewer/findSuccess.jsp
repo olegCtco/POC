@@ -25,22 +25,28 @@
     </tr>
     <tr>
         <td align="center">
-            <form action="/ListViewer/find" method="POST">
+            <form action="${pageContext.request.contextPath}/ListViewer/find" method="POST">
                 <table>
                     <tr>
                         <td colspan="2">Find the student/s</td>
                     </tr>
                     <tr>
                         <td>Input name:</td>
-                        <td><input type="text" name="name"/></td>
+                        <td><label>
+                            <input type="text" name="name"/>
+                        </label></td>
                     </tr>
                     <tr>
                         <td>Input surname:</td>
-                        <td><input type="text" name="surname"/></td>
+                        <td><label>
+                            <input type="text" name="surname"/>
+                        </label></td>
                     </tr>
                     <tr>
                         <td>Input university:</td>
-                        <td><input type="text" name="university"/></td>
+                        <td><label>
+                            <input type="text" name="university"/>
+                        </label></td>
                     </tr>
                     <tr>
                         <td colspan="2"><input type="submit" class="button success" name="find" value="Find"></td>

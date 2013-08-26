@@ -12,16 +12,12 @@ public class ComparatorByUniversity implements Comparator {
         String o2StudentUniversity = ((Student) o2).getUniversity();
         int sComp = o1StudentUniversity.compareTo(o2StudentUniversity);
         if (sComp != 0) return sComp;
-        else {
-            String o1StudentName = ((Student) o1).getName();
-            String o2StudentName = ((Student) o2).getName();
-            sComp = o1StudentName.compareTo(o2StudentName);
-            if (sComp != 0) return sComp;
-            else {
-                String o1StudentSurname = ((Student) o1).getSurname();
-                String o2StudentSurname = ((Student) o2).getSurname();
-                return o1StudentSurname.compareTo(o2StudentSurname);
-            }
-        }
+        String o1StudentName = ((Student) o1).getName();
+        String o2StudentName = ((Student) o2).getName();
+        sComp = o1StudentName.compareTo(o2StudentName);
+        if (sComp != 0) return sComp;
+        String o1StudentSurname = ((Student) o1).getSurname();
+        String o2StudentSurname = ((Student) o2).getSurname();
+        return o1StudentSurname.compareTo(o2StudentSurname);
     }
 }

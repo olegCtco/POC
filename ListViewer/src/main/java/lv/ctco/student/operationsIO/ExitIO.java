@@ -7,8 +7,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class ExitIO implements OperationsIO {
-    private String mnemonics;
-    BufferedReader localBf;
+    private final String mnemonics;
+    private final BufferedReader localBf;
 
     public ExitIO(String mnemonics) {
         this.mnemonics = mnemonics;

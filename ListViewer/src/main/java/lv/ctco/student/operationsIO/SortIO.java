@@ -6,8 +6,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class SortIO implements OperationsIO {
-    BufferedReader localBf;
-    private String mnemonics;
+    private final BufferedReader localBf;
+    private final String mnemonics;
 
     public SortIO(String mnemonics) {
         this.mnemonics = mnemonics;
@@ -43,7 +43,7 @@ public class SortIO implements OperationsIO {
             System.out.println("Are you want to sort by university? (Y if yes)");
             university = localBf.readLine();
             values[2] = university;
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         return values;
     }

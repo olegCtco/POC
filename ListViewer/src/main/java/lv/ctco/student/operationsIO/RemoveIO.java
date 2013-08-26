@@ -7,9 +7,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class RemoveIO implements OperationsIO {
-    Checker checker;
-    BufferedReader localBf;
-    private String mnemonics;
+    private final Checker checker;
+    private final BufferedReader localBf;
+    private final String mnemonics;
 
     public RemoveIO(String mnemonics) {
         checker = new Checker();

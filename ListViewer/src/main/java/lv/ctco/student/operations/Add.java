@@ -1,7 +1,7 @@
 package lv.ctco.student.operations;
 
-public class Add {
-//        implements Operations {
+@SuppressWarnings("UnusedDeclaration")
+class Add /*implements Operations*/ {
 //    @Override
 //    public String getOperation() {
 //        return Operation.ADD.name();

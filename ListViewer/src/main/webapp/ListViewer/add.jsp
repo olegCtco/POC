@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link rel="stylesheet" href="css/foundation.css" type="text/css">
@@ -26,28 +27,34 @@
     <tr>
         <td align="center">
             <div class="large-centered">
-                <form action="/ListViewer/add" method="POST">
+                <form action="${pageContext.request.contextPath}/ListViewer/add" method="POST">
                     <table class="pricing-table">
                         <tr>
                             <td colspan="2">Add the student</td>
                         </tr>
                         <tr>
                             <td>Input name:</td>
-                            <td><input type="text" name="name" value="${name}"/></td>
+                            <td><label>
+                                <input type="text" name="name" value="${name}"/>
+                            </label></td>
                             <td>
                                 <div style="color: red">${emptyName}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>Input surname:</td>
-                            <td><input type="text" name="surname" value="${surname}"/></td>
+                            <td><label>
+                                <input type="text" name="surname" value="${surname}"/>
+                            </label></td>
                             <td>
                                 <div style="color: red">${emptySurname} </div>
                             </td>
                         </tr>
                         <tr>
                             <td>Input university:</td>
-                            <td><input type="text" name="university" value="${university}"/></td>
+                            <td><label>
+                                <input type="text" name="university" value="${university}"/>
+                            </label></td>
                             <td>
                                 <div style="color: red">${emptyUniversity} </div>
                             </td>

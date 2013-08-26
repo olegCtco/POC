@@ -14,9 +14,9 @@ public class RemoveServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        boolean success = false;
+        boolean success;
         try {
-            success = (boolean) new ListViewer().remove(id);
+            success = new ListViewer().remove(id);
             System.out.println("Success " + success);
             if (success) {
                 req.setAttribute("validId", "Student was successfully removed from the list");

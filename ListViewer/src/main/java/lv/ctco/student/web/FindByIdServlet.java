@@ -10,13 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created with IntelliJ IDEA.
- * User: butross
- * Date: 8/22/13
- * Time: 9:13 AM
- * To change this template use File | Settings | File Templates.
- */
 @WebServlet(name = "findById", urlPatterns = "/ListViewer/findById")
 public class FindByIdServlet extends HttpServlet {
     @Override

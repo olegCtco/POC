@@ -1,28 +1,28 @@
 package lv.ctco.student;
 
-import lv.ctco.student.db.DBOperations;
+import lv.ctco.student.db.DBService;
+import lv.ctco.student.web.ApplicationContext;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListViewer implements OperationsList {
-    DBOperations dbOperations;
-    Checker checker;
-    private List<Student> resultList;
-    private ConsoleIO consoleIO;
+    private final Checker checker;
+    private final DBService db;
+    @SuppressWarnings("UnusedDeclaration")
     private List<String> values;
 
     public ListViewer() {
-        dbOperations = new DBOperations();
-        resultList = new ArrayList<Student>();
-        consoleIO = new ConsoleIO();
+//        DBOperations dbOperations = new DBOperations();
+        @SuppressWarnings("UnusedAssignment") List<Student> resultList = new ArrayList<>();
+        @SuppressWarnings("UnusedAssignment") ConsoleIO consoleIO = new ConsoleIO();
         checker = new Checker();
-
+        ApplicationContext context = ApplicationContext.getContext();
+        db = context.getDBService();
     }
 
     public boolean add(List<String> values) throws NullPointerException {
-//        try{
+        boolean isNotException;
         String name = values.get(0);
         String surname = values.get(1);
         String university = values.get(2);
@@ -30,18 +30,15 @@ public class ListViewer implements OperationsList {
         if (name.isEmpty() || surname.isEmpty() || university.isEmpty())
             return false;
         Student student = new Student(name, surname, university, idForStudent);
-        try {
-            dbOperations.insert(name, surname, university);
-            StudentsList.getStudentList().add(student);
-        } catch (SQLException e) {
-            return false;
-        }
-        return true;
+        isNotException = db.insert(name, surname, university);
+        StudentsList.getStudentList().add(student);
+        return isNotException;
     }
 
     public boolean remove(String id) throws NullPointerException {
+        boolean isNotException = true;
         List<Student> studentList = StudentsList.getStudentList();
-        String idToRemove = id;
+        @SuppressWarnings("UnnecessaryLocalVariable") String idToRemove = id;
         if (id.isEmpty() || checker.notAnInteger(id)) {
             return false;
         }
@@ -51,17 +48,12 @@ public class ListViewer implements OperationsList {
         }
         for (int i = 0; i <= studentList.size(); i++) {
             if (studentList.get(i).getId() == intIdToRemove) {
-                try {
-                    dbOperations.delete(intIdToRemove);
-                    studentList.remove(i);
-                } catch (SQLException e) {
-                    return false;
-                }
-                return true;
+                isNotException = db.delete(intIdToRemove);
+                studentList.remove(i);
+                return isNotException;
             }
         }
-
-        return false;
+        return isNotException;
     }
 
     public Student getStudentById(String id) throws NullPointerException {
@@ -79,22 +71,19 @@ public class ListViewer implements OperationsList {
                 return student;
             }
         }
-
         return null;
     }
 
     public boolean update(String id, String name, String surname, String university) throws NullPointerException {
         Student studentToChange = getStudentById(id);
+        //noinspection ObjectEqualsNull
         if (!studentToChange.equals(null)) {
             int idToChange = studentToChange.getId();
-            try {
-                dbOperations.update(idToChange, name, surname, university);
-                studentToChange.setName(name);
-                studentToChange.setSurname(surname);
-                studentToChange.setUniversity(university);
-                return true;
-            } catch (SQLException ignored) {
-            }
+            db.update(idToChange, name, surname, university);
+            studentToChange.setName(name);
+            studentToChange.setSurname(surname);
+            studentToChange.setUniversity(university);
+            return true;
         }
         return false;
     }
@@ -103,7 +92,7 @@ public class ListViewer implements OperationsList {
         String name = values.get(0);
         String surname = values.get(1);
         String university = values.get(2);
-        List<Student> result = new ArrayList<Student>();
+        List<Student> result = new ArrayList<>();
         if ((name.equals("") && surname.equals("") && university.equals(""))) return result;
         else
             for (Student student : StudentsList.getStudentList()) {
@@ -133,7 +122,6 @@ public class ListViewer implements OperationsList {
                 }
                 if (student.getName().equals(name) && student.getSurname().equals(surname) && student.getUniversity().equals(university)) {
                     result.add(student);
-                    continue;
                 }
             }
         StudentsList.getTmpList().clear();
@@ -141,6 +129,7 @@ public class ListViewer implements OperationsList {
         return result;
     }
 
+    @SuppressWarnings("EmptyMethod")
     public void start() {
 //        while (true) {
 //        resultList = StudentsList.getStudentList();

@@ -28,14 +28,16 @@
     <tr>
         <td align="center">
             <div class="large-centered">
-                <form action="/ListViewer/remove" method="POST">
+                <form action="${pageContext.request.contextPath}/ListViewer/remove" method="POST">
                     <table class="pricing-table">
                         <tr>
                             <td colspan="2">Remove student</td>
                         </tr>
                         <tr>
                             <td>Input student id:</td>
-                            <td><input type="text" name="id" value="${id}"/></td>
+                            <td><label>
+                                <input type="text" name="id" value="${id}"/>
+                            </label></td>
                             <td>
                                 <div style="color: red">${invalidId}</div>
                             </td>

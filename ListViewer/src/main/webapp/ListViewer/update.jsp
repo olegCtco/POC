@@ -52,14 +52,16 @@
         </td>
         <td align="center">
             <div class="large-centered">
-                <form action="/ListViewer/findById" method="POST">
+                <form action="${pageContext.request.contextPath}/ListViewer/findById" method="POST">
                     <table class="pricing-table">
                         <tr>
                             <td colspan="2">Update student</td>
                         </tr>
                         <tr>
                             <td>Input student id:</td>
-                            <td><input type="text" name="id" value="${id}"/></td>
+                            <td><label>
+                                <input type="text" name="id" value="${id}"/>
+                            </label></td>
                             <td>
                                 <div style="color: red" name="invalidId">${invalidId}</div>
                             </td>
@@ -70,32 +72,39 @@
                         </tr>
                     </table>
                 </form>
-                <form action="/ListViewer/update" method="POST">
+                <form action="${pageContext.request.contextPath}/ListViewer/update" method="POST">
                     <table>
                         <tr>
                             <td colspan="2">
                                 <%--<input name="idHidden" type="hidden" values=${id}/>--%>
                                 <input type="hidden" name="idHidden" value="${idHidden}"/></td>
-                            <div style="color: green">${validId}</div>
+                            <td>
+                                <div style="color: green">${validId}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>Name:</td>
-                            <td><input type="text" name="name" value="${name}"/></td>
+                            <td><label>
+                                <input type="text" name="name" value="${name}"/>
+                            </label></td>
                             <td>
                                 <div style="color: red">${invalidName}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>Surname:</td>
-                            <td><input type="text" name="surname" value="${surname}"/></td>
+                            <td><label>
+                                <input type="text" name="surname" value="${surname}"/>
+                            </label></td>
                             <td>
                                 <div style="color: red">${invalidSurname}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>University:</td>
-                            <td><input type="text" name="university" value="${university}"/></td>
+                            <td><label>
+                                <input type="text" name="university" value="${university}"/>
+                            </label></td>
                             <td>
                                 <div style="color: red">${invalidUniversity}</div>
                             </td>

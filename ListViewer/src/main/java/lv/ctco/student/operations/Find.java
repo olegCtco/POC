@@ -19,7 +19,7 @@ public class Find implements Operations {
         String name = values.get(0);
         String surname = values.get(1);
         String university = values.get(2);
-        List<Student> result = new ArrayList<Student>();
+        List<Student> result = new ArrayList<>();
         if ((name.equals("") && surname.equals("") && university.equals(""))) return result;
         else
             for (Student student : StudentsList.getStudentList()) {
@@ -49,7 +49,6 @@ public class Find implements Operations {
                 }
                 if (student.getName().equals(name) && student.getSurname().equals(surname) && student.getUniversity().equals(university)) {
                     result.add(student);
-                    continue;
                 }
             }
         StudentsList.getTmpList().clear();

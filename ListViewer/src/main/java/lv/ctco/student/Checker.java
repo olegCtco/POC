@@ -4,15 +4,16 @@ import java.util.List;
 
 public class Checker implements OperationsList {
     public boolean checkOperation(String operation) {
-        for (int i = 0; i < listOfOperations.size(); i++)
-            if (listOfOperations.get(i).getOperation().equalsIgnoreCase(operation)) return true;
+        for (Operations listOfOperation : listOfOperations) {
+            if (listOfOperation.getOperation().equalsIgnoreCase(operation)) return true;
+        }
         return false;
     }
 
     public boolean isEmptyString(String value) {
         try {
-            if (value.equals("") || value.equals(null)) return true;
-            return false;
+            //noinspection ObjectEqualsNull,ObjectEqualsNull
+            return value.equals("") || value.equals(null);
         } catch (NullPointerException e) {
             return true;
         }
@@ -34,5 +35,4 @@ public class Checker implements OperationsList {
         }
         return true;
     }
-
 }

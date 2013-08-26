@@ -1,7 +1,7 @@
 package lv.ctco.student;
 
 public class Student {
-    private int id;
+    private final int id;
     private String name;
     private String surname;
     private String university;
@@ -51,10 +51,7 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        if (name != null ? !name.equals(student.name) : student.name != null) return false;
-        if (surname != null ? !surname.equals(student.surname) : student.surname != null) return false;
-        if (university != null ? !university.equals(student.university) : student.university != null) return false;
-        return true;
+        return !(name != null ? !name.equals(student.name) : student.name != null) && !(surname != null ? !surname.equals(student.surname) : student.surname != null) && !(university != null ? !university.equals(student.university) : student.university != null);
     }
 
     @Override

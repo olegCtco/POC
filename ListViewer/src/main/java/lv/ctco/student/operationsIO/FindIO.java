@@ -6,8 +6,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class FindIO implements OperationsIO {
-    BufferedReader localBf;
-    private String mnemonics;
+    private final BufferedReader localBf;
+    private final String mnemonics;
 
 
     public FindIO(String mnemonics) {
@@ -17,9 +17,9 @@ public class FindIO implements OperationsIO {
 
     @Override
     public String[] doOperationIO() {
-        String name = "";
-        String surname = "";
-        String university = "";
+        String name;
+        String surname;
+        String university;
         String[] values = new String[3];
         try {
             System.out.println("Input name:");
@@ -31,7 +31,7 @@ public class FindIO implements OperationsIO {
             System.out.println("Input university");
             university = localBf.readLine();
             values[2] = university;
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         return values;
     }

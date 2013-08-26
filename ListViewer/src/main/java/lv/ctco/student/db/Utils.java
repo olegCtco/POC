@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Utils {
+class Utils {
     public static List<String> parseToSql(String fileName) throws IOException {
-        List<String> sqlQueries = new ArrayList<String>();
+        List<String> sqlQueries = new ArrayList<>();
         String line;
         String sqlString = "";
         FileReader sqlFile = new FileReader(fileName);

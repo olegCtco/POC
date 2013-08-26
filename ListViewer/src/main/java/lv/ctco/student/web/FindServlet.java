@@ -21,8 +21,8 @@ public class FindServlet extends HttpServlet {
             String name = req.getParameter("name");
             String surname = req.getParameter("surname");
             String university = req.getParameter("university");
-            List<String> studentValues = Arrays.asList(new String[]{name, surname, university});
-            ArrayList<String> findByValues = new ArrayList<String>(studentValues);
+            List<String> studentValues = Arrays.asList(name, surname, university);
+            ArrayList<String> findByValues = new ArrayList<>(studentValues);
             List<Student> foundedStudents = new ListViewer().find(findByValues);
             int size = foundedStudents.size();
             if (size == 0) {
