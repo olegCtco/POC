@@ -10,16 +10,17 @@ import java.util.List;
 
 public class DBOperations {
     public void createTables() throws IOException {
+//        -- CREATE IF NOT EXISTS SEQUENCE AUTOINC START WITH 1 INCREMENT BY 1 CACHE 1;
 //        /home/joen/GitHub/POC/ListViewer/sql/sqlCreateTable.sql
-//        List<String> sqlQueries = Utils.parseToSql("sql\\sqlCreateTable.sql");
-        List<String> sqlQueries = Utils.parseToSql("sql/sqlCreateTable.sql");
+        List<String> sqlQueries = Utils.parseToSql("sql\\sqlCreateTable.sql");
+//        List<String> sqlQueries = Utils.parseToSql("sql/sqlCreateTable.sql");
         try {
             for (String query : sqlQueries) {
                 DBConnector.getStatement().executeUpdate(query);
             }
             sqlQueries.clear();
-//            sqlQueries = Utils.parseToSql("sql\\sqlInsert.sql");
-            sqlQueries = Utils.parseToSql("sql/sqlInsert.sql");
+            sqlQueries = Utils.parseToSql("sql\\sqlInsert.sql");
+//            sqlQueries = Utils.parseToSql("sql/sqlInsert.sql");
             for (String query : sqlQueries) {
                 DBConnector.getStatement().executeUpdate(query);
             }
@@ -48,7 +49,10 @@ public class DBOperations {
                     student = new Student(name, surname, university, id);
                     studentList.add(student);
                 }
-                StudentsList.setId(id);
+                resultSet = DBConnector.getStatement().executeQuery("SELECT AUTOINC.CURRVAL FROM DUAL;");
+                resultSet.next();
+                int idFromSequence = resultSet.getInt(1);
+                StudentsList.setId(idFromSequence);
 
             } catch (SQLException e) {
             }
